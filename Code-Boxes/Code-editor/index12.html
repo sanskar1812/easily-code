@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Program to Print all the Leaders in the array in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Program to Print all the Leaders in the array in Java</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+  Today we will Write a Program to print all the Leaders in the array in Java. So you are given an array and you have to find the leaders. A leader in an array is the element which is greater than all elements to its right side. You can solve this problem in different approaches but here I will show you a simple one with an explanation in Java.
+
+  Let’s see an example and understand the problem:
+</h5>
+<h3>Implementation</h3>
+<hr>
+<h5>
+  So, you can see from the examples that all output element has no greater element to is right. The last element in the array will always be printed because there is no element right to it.
+
+  In the first example, you can see that after 10 there is a greater element that is 30. So 10 can’t appear in the output. For 30 there is no such element, so it must be in our output. And 12 is after 6, so 6 is not considered. 12 is the largest from the right side. The last element is always considered in our output because it is the rightmost element. So the output is-[ 30 12 2]. Now you can easily figure out the output of the other examples.
+
+  Now, see the algorithm:
+  Declare a variable and initialize it with the minimum possible number in Java. Then traverse the array from the right side and if any element is bigger than the variable then store it in a different array.
+  At last, print the array in reverse order and you will get the desired output.
+
+  Now see the implementation-</h5>
+<hr class="new-line">
+
+<h3>
+  Java Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.io.*;
+  import java.util.*;
+  class Main
+  {
+      //Function to print leaders in an array
+      void getLeaders(int arr[], int n)
+      {
+          int temp=Integer.MIN_VALUE;//initialize temp variable with min value
+          Vector vec=new Vector();
+          for(int i=n-1;i>=0;i--){//traverse the array from right side
+              if(arr[i]>temp){
+                  vec.add(arr[i]);
+                  temp=arr[i];
+              }
+          }
+          Collections.reverse(vec);//reverse the vector
+          Iterator i = vec.iterator();
+          while (i.hasNext()) {
+              System.out.println(i.next());//print the vector
+        }
+      }
+
+      public static void main(String[] args)
+      {
+          Main solution = new Main();
+          int arr[] = new int[]{20, 10, 13, 3, 6, 2}; //input array
+          int n = arr.length;
+          solution.getLeaders(arr, n);
+      }
+  }</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="5" cols="50" readonly>
+  Output:
+  20
+  13
+  6
+  2
+
+</textarea>
+
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

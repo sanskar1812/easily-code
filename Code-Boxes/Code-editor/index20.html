@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java program to find the Largest triplet product in a stream in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java program to find the Largest triplet product in a stream in Java</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+In this tutorial, we are going to find the Largest triplet product in Java. This is a very basic problem and an example of heaps or priority_queue.
+</h5>
+<br>
+<h3>Priority Queue in Java or (MAX HEAP)</h3>
+<hr>
+<h5>
+  The priority queue is java is by default a min-heap but we can use java.util.Collections Class and convert it into a max-heap. In the given question, we will input the elements using an array which is a stream of data in real life.
+  We insert all the elements of the array in the max-heap or priority queue and then pop 3 elements one by one. Because the elements at the top of the priority queue will be greatest of all. So we get the first greatest element, then second greater and last third greater element. Return the product of these three values as our answer.
+</h5>
+
+<hr class="new-line">
+
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+  import java.lang.*;
+  import java.io.*;
+
+
+  class Game
+  {
+      static void ltp(int arr[], int n) {
+          PriorityQueue<Integer> pq = new PriorityQueue(Collections.reverseOrder());
+
+          for (int i = 0; i < n; i++) {
+              pq.add(arr[i]);
+
+              if (pq.size() >= 3){
+                  int a = pq.poll();
+                  int b = pq.poll();
+                  int c = pq.poll();
+                  // Reinsert these elements as in real stream we maybe wanting
+                  // to get the largest triplet product at a later point of time too.
+                  int pro = (a*b)*c;
+                  pq.add(a);
+                  pq.add(b);
+                  pq.add(c);
+                  System.out.println(pro);
+              }
+              else{
+                  System.out.println("Not possible");
+              }
+          }
+      }
+
+      public static void main (String[] args) throws java.lang.Exception{
+           int arr[] = {1,7,3,5,9,13,2};
+           int n = arr.length;
+           ltp(arr, n);
+      }
+  }</textarea>
+<hr>
+<hr class="new-line">
+
+<h3>
+Output :
+</h3>
+<textarea rows="5" cols="120" readonly>
+  Not possible
+  Not possible
+  21
+  105
+  315
+  819
+  819
+</textarea>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

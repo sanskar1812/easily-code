@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Check If A String Is Palindrome Or Not Ignoring The Case Of Characters In Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Check If A String Is Palindrome Or Not Ignoring The Case Of Characters In Java</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  In this article, In this post, we are going to learn if a string is a palindrome or not ignoring the case of the characters used to build the string.
+</h5>
+<h3>What is a palindrome word?</h3>
+<hr>
+<h5>
+<p>A word is said to be a palindrome if the reverse of the word is to be same as the unreversed word. (e.g, rotator)
+
+<p>It is really very easy to check a String is either palindrome or not, But when you need to check it ignoring the characters are in lower case or not then it will be something called tricky program.
+for example- “madam” is a palindrome word as if we reverse the string “madam”, It will still be unchanged. It is called as a palindrome word.
+<p>But assume that you have a string like this “Madam”, Where M is in upper case. Then it will not be a palindrome anymore as if we simply make it reverse, the string will be like this “Madam” and both the strings are not same for a compiler.
+
+<p>So in this java post, we are going to build a program which will check if a string is palindrome or not ignoring this character case issue (that means it will ignore the case of characters and will return true value if the string is palindrome irrespective of the character cases either it will return false if the string is not palindrome)
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+
+  public class codespeedy
+  {
+    private static final String Text = null;
+
+    public static boolean Palindrome(String Text) {
+      Scanner input=new Scanner(System.in);
+      System.out.println("Enter a word");
+      Text=input.next();
+       System.out.println(Text);
+      Text = Text.toLowerCase();
+
+          String reverse = new StringBuilder(Text).reverse().toString();
+          if( Text.equals(reverse)){
+            return true;
+          }else{
+            return false;
+          }
+      }
+
+      public static void main(String[] args) {
+          System.out.println(Palindrome(Text));
+      }
+  }</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="12" cols="50" readonly>
+Enter a word
+Madam
+Madam
+true
+
+
+
+Enter a word
+Easilycode
+Easilycode
+false
+</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

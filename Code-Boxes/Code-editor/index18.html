@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java program to Check if two trees are Mirror || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java program to Check if two trees are Mirror</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+In this tutorial, we will see how to check if two given trees are mirror to each other in Java.
+</h5>
+<br>
+<h3>Checking if two trees are mirror in Java</h3>
+<hr>
+<h5>
+<b>What are mirror trees?</b>
+<br>
+<br>
+Given 2 trees, if mirror representation of one tree exactly represents the other then those trees are mirror trees.
+In other words, the left subtree of one tree should exactly match with right subtree of other tree and vice-versa.</h5>
+<h3>Algorithm</h3>
+<h5>
+  <ul>
+  <li>We first check if both trees are non-empty.</li>
+  <li>If yes, we return true.</li>
+  <li>Else we check if either one is non-empty, in that case, we return false.</li>
+  <li>Since we need the left subtree of one tree to be equal to right subtree of other tree and vice-versa.</li>
+  <li>We recursively call our function by passing left subtree of one tree and right subtree of another tree.</li>
+  <li>Again we call the function by passing right subtree of one tree and left subtree of the other tree.</li>
+</ul>
+</h5>
+
+<hr class="new-line">
+
+<h3>
+Code to check if two trees are mirror in Java
+</h3>
+<textarea rows="30" cols="120" readonly>
+  class Node
+  {
+      int data;
+      Node left, right;
+
+      public Node(int x)
+      {
+          this.data = x;
+          this.left=null;
+          this.right=null;
+
+      }
+  }
+
+  public class MirrorTrees
+  {
+      //Create 2 trees
+      Node firstTree, secondTree;
+
+
+      //Function which will check if
+      //given trees are mirror
+      boolean areMirror(Node firstTree, Node secondTree)
+      {
+
+          //Base case
+          if (firstTree == null && secondTree == null)
+              return true;
+
+          //If only one is empty then the
+          //other tree is not , so they can't
+          //be mirror trees
+          if (firstTree == null || secondTree == null)
+              return false;
+
+          //If they are non-empty then
+          //check for values in the nodes
+          //then call the function recursively
+          //by passing left of a tree and right of the
+          //other tree as one call,
+          // and right of a tree and left
+          //of the other tree as another call
+          return firstTree.data == secondTree.data
+                  && areMirror(firstTree.left, secondTree.right)
+                  && areMirror(firstTree.right, secondTree.left);
+      }
+
+      public static void main(String[] args)
+      {
+
+          /*The trees are
+
+                1         1
+               / \       / \
+              2   3     3   2
+             / \           / \
+            4   5         5   4
+
+          */
+
+          MirrorTrees mt = new MirrorTrees();
+          Node firstTree = new Node(1);
+          Node secondTree = new Node(1);
+          firstTree.left = new Node(2);
+          firstTree.right = new Node(3);
+          firstTree.left.left = new Node(4);
+          firstTree.left.right = new Node(5);
+
+          secondTree.left = new Node(3);
+          secondTree.right = new Node(2);
+          secondTree.right.left = new Node(5);
+          secondTree.right.right = new Node(4);
+
+          if (mt.areMirror(firstTree, secondTree)){
+              System.out.println("They are mirror trees");
+          }
+          else{
+              System.out.println("They are not mirror trees");
+          }
+
+      }
+  }</textarea>
+<hr>
+<hr class="new-line">
+
+<h3>
+Output
+</h3>
+<textarea rows="1" cols="120" readonly>
+  They are mirror trees
+</textarea>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

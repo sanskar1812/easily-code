@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Sum of bit differences for all pairs in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Sum of bit differences for all pairs in Java</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+Here you will learn to find the bit difference of all possible pairs of numbers and sum them up in Java Programming Language. This tutorial will give you a basic idea and some tricks to start your approach towards this problem.
+Let’s first understand with an example of what we are up to in this specific problem and how to solve it with as less time complexity as possible,
+
+Let us make up a process which we need to follow to obtain the output,
+<ol>
+  <li>We will consider an array of integers.</li>
+<li>Then we have to find all possible pairs of those array elements.</li>
+<li>The next step, find the difference of there bit represented value.</li>
+<li>Finally, we have to sum them up.</li>
+</ol>
+<br>
+Note- Bit difference of 5 and 6 can be calculated as 5 is 101 and 6is 110 as bits, as the second and last bit differs in two numbers the difference is 2.
+
+An easy solution here is, we can represent all the elements in the array in 32 bits and then traverse through the 0_th-bit index to 31st-bit index to count numbers having the i_th bit set.
+</h5>
+<h3>Implementation</h3>
+<hr>
+<h5>
+  <ul>
+  <li>We will assign the numbers which are i_th bit set.</li>
+  <li>We will also assign the numbers which are i_th bit not set with different variable names.</li>
+  <li>As both sets contribute exactly one to the final sum when they are multiplied.</li>
+  <li>2 is multiplied considering the repetition factor.</li>
+</ul></h5>
+<hr class="new-line">
+
+<h3>
+  Java Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.io.*;
+  public class SumDifference {
+      public static void main(String args[])
+      {
+          int array[] = {5,6}; //array
+          int n = array.length;
+          System.out.println(sumbit(array, n));
+      }
+      static int sumbit(int array[], int n) //function
+      {
+          int result=0,i,j,set=0,not_set; //variables initialized
+
+          for (i = 0; i < 32; i++) {  //traversing
+             set = 0;   //set numbers
+
+             for (j = 0; j < n; j++)
+                if ((array[j] & (1 << i)) == 0)
+                   set++;
+
+             not_set=n-set;    // non set numbers
+             result=result+(set * (not_set) * 2); //*2 for repetition
+          }
+
+          return result;
+      }
+  }
+</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="1" cols="50" readonly>
+4
+</textarea>
+
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

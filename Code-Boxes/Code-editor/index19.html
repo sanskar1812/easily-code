@@ -1,0 +1,104 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java Program to remove odd frequency characters in a string|| Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java Program to remove odd frequency characters in a string</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants,In this tutorial, we are going to remove the characters from a string that appears an odd number of times in it. We are going to use HashMap in JAVA to improve our time complexity to O(n).
+</h5>
+<hr>
+<h3>Using HashMap in Java to make the task simpler</h3>
+<hr>
+<h5>
+We are just inserting the characters with their frequencies in the hashmap by iterating over the characters of the input string. Then again iterating over the string characters and checking if the frequency is odd then add it to the result string.
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+  import java.lang.*;
+  import java.io.*;
+  class Game
+  {
+    public static void main (String[] args) throws java.lang.Exception
+    {
+      String s = "invertebrates";
+      HashMap<Character, Integer> H= new HashMap<Character,Integer>();
+          for (int i = 0; i < s.length(); i++) {
+              char ch = s.charAt(i);
+              Integer count = H.get(ch);
+              if( count == null)
+              {
+                  count=0;
+                  H.put(ch,1);
+              }
+              else
+                  H.put(ch,count + 1);
+          }
+          String res = "";
+
+          for (int i = 0; i < s.length(); i++) {
+
+              if ((H.get(s.charAt(i))& 1)==1)
+                  continue;
+
+              res += s.charAt(i);
+          }
+         System.out.println(res);
+    }
+  }
+</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="1" cols="30" readonly>
+rtrt</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

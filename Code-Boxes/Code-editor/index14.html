@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Convert List to Map in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Convert List to Map in Java</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+In this tutorial, we will learn the logic for converting a List into a Map in Java. We will also implement a Java program that will demonstrate the conversion.
+</h5>
+<h3>Conversion of List representing the Job-Salaries of employees into a Map of key-value pair</h3>
+<hr>
+<h5>
+<b>  What is a List?</b>
+<br><br>
+  List represents the ordered sequence of elements. List belongs to the java.util.List library module of Java. Elements from the list can be inserted, traversed, deleted, etc. The elements in the list are ordered in sequential manner that is why this data structure is called as List.
+
+  Each element in a List has an index which begins from zero, the further elements in the list has indexing i+1, and so on. We can add any Java object to a List. If the List is not of specific class-type, using Java Generics, the programmer can mix objects of different types (classes) in the same List. Mixing objects of different class types in the same List is not a good programming practice.
+<br><br>
+  <b>What is a Map?</b>
+
+<br><br>
+A map is an object that stores the Key-Value pair of data. A map cannot contain duplicate values. Each key in map object can map to maximum only one value. There are three types of maps, they are HashMap, TreeMap, and LinkedHashMap.
+
+The basic operations of Map are put(), get(), containskey(), containsvalue(), size() and isEmpty().
+
+In Java, Map doesn’t allows the programmer to have the duplicate keys, but it allows to have duplicate values. HashMap and LinkedHashMap allows the programmer to have null keys and values in the map, but TreeMap doesn’t allow null key or value in the map.
+</h5>
+<hr class="new-line">
+
+<h3>
+Following is the Java code implementation of List to Map conversion:
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.ArrayList;
+  import java.util.HashMap;
+  import java.util.List;
+  import java.util.Map;
+
+  public class jobsalaries
+  {
+    public String employee;
+    public int salary;
+
+    public jobsalaries(String employee, int salary) {
+      this.employee = employee;
+      this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+      return employee + "=" + salary;
+    }
+
+    public String  getemployee() {
+      return employee;
+    }
+
+    public int getsalary() {
+      return salary;
+    }
+
+    public static void main(String[] args)
+    {
+      // input list of Objects
+      List<jobsalaries> js = new ArrayList<jobsalaries>();
+
+      js.add(new jobsalaries("Software_Engineer", 80000));
+      js.add(new jobsalaries("Business_Analyst", 120000));
+      js.add(new jobsalaries("HR", 150000));
+
+      Map<String, Integer> map = new HashMap<>();
+
+      // construct key-value pairs from employee and salary fields of Job
+      for (jobsalaries obj : js) {
+        map.put(obj.getemployee(), obj.getsalary());
+      }
+
+      System.out.println("List : " + js);
+      System.out.println("Map : " + map);
+    }
+
+  }</textarea>
+<hr>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

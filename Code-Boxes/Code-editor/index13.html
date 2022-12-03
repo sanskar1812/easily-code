@@ -1,0 +1,180 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Check if binary representation of a number is palindrome in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Check if binary representation of a number is palindrome in Java</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants, I will be explaining if the binary of a number is palindrome or not in Java. A palindrome number is one which when reversed, yields the same number with which we started.
+</h5>
+<hr>
+<h5>
+  <p>As stated above, to check if a number is palindrome or not, we need to find the reverse of it. I will be using the basic OOPS concepts of Java to implement my approach to this problem. In my class, I have made three functions: decimaltobinary(), check_pallindrome(), and the main() function.
+
+
+  <p>The decimaltobinary() function takes the integer number as parameterized input and converts it into its binary equivalent. I have stored the result in a 1-D array. Since I have to return this array in the main function, the return type of this function should of integer array type.
+
+
+  <p>In the next function, check_pallindrome(), I have reversed the array and stored in another 1_D array. After that, I will check that each value in these two arrays at the same index is the same. A flag variable helps me keep a check on this and whenever the condition fails, I break out of the loop. If at the end the flag variable is still set 1, then it is a palindrome number otherwise it is not. One important thing to note here is that I have made this function static. I have done this because we will have to pass an array as a parameter to the function. It cannot be done if our function is not static and will generate a compile-time error.
+</h5>
+<hr>
+<h5>
+  In the main() function, I have made an object of Scanner class to take user input. Next, I have created an object of the class to call my functions in main. I store the results of decimaltobinary() function in an array and pass that as a parameter in check_pallindrome() function.
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+  public class binary_pallindrome
+  {
+      int[] decimaltobinary(int a)
+      {
+          int i, k=7;
+          int b[] = new int[8];
+          //changing to binary representation
+          while(a>0)
+          {
+              if(a%2==0)
+              {
+                  b[k] = 0;
+                  k--;
+                  a = a/2;
+              }
+              else
+              {
+                  b[k] = 1;
+                  k--;
+                  a = a/2;
+              }
+          }
+
+          return b;
+      }
+
+      static void check_pallindrome(int A[])
+      {
+          int m = 7;
+          int i, flag=0;
+          int B[] = new int[8];
+          //Reversing the original and storing in another array
+          for(i=0;i<8;i++)
+          {
+              B[m] = A[i];
+              m--;
+          }
+
+          System.out.print("Binary               ");
+          for(i=0;i<8;i++)
+          {
+              System.out.print(A[i]);
+          }
+
+          System.out.println(" ");
+
+          System.out.print("Reversed Binary      ");
+          for(i=0;i<8;i++)
+          {
+              System.out.print(B[i]);
+          }
+
+          System.out.println(" ");
+
+          //setting the flag appropriately
+          for(i=0;i<8;i++)
+          {
+              if(A[i] == B[i])
+              {
+                  flag = 1;
+              }
+              else
+              {
+                  flag=0;
+                  break;
+              }
+          }
+
+          //check flag variable
+          if(flag == 1)
+          {
+              System.out.println("Pallindrome");
+          }
+          else
+          {
+              System.out.println("Not Pallindrome");
+          }
+
+          System.out.println(" ");
+
+
+      }
+
+      public static void main(String[] args)
+      {
+          Scanner ob = new Scanner(System.in);
+          System.out.println("Enter number ");
+          int n = ob.nextInt();
+
+          binary_pallindrome bp = new binary_pallindrome();
+
+          int arr[] = bp.decimaltobinary(n);
+          check_pallindrome(arr);
+      }
+
+  }</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="5" cols="50" readonly>
+  Enter number
+  153
+  Binary                    10011001
+  Reversed Binary   10011001
+  Pallindrome</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

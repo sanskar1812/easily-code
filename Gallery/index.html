@@ -1,0 +1,145 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <h1 class="heading" id="heading">The Art Gallery of "Easily Code with me"</h1>
+      <div class="gallery" id="gallery">
+        <div class="gallery-item">
+            <div class="content"><img src="img/1.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/2.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/3.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/4.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/5.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/6.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/7.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/8.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/9.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/10.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/11.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/12.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/13.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/14.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/15.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/16.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/17.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/18.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/19.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/20.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/21.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/22.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/23.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/24.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/25.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/26.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/27.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/28.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/29.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/30.jpeg" alt=""></div>
+        </div>
+
+      </div>
+
+
+        <div class="footer">
+        <p class="p-tag">Made with  &#9829;   by SD </p>
+      </div>
+
+      <script type="text/javascript">
+
+      var gallery = document.querySelector('#gallery');
+    var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+    var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+    var resizeAll = function () {
+        var altura = getVal(gallery, 'grid-auto-rows');
+        var gap = getVal(gallery, 'grid-row-gap');
+        gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+            var el = item;
+            el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+        });
+    };
+    gallery.querySelectorAll('img').forEach(function (item) {
+        item.classList.add('byebye');
+        if (item.complete) {
+            console.log(item.src);
+        }
+        else {
+            item.addEventListener('load', function () {
+                var altura = getVal(gallery, 'grid-auto-rows');
+                var gap = getVal(gallery, 'grid-row-gap');
+                var gitem = item.parentElement.parentElement;
+                gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+                item.classList.remove('byebye');
+            });
+        }
+    });
+    window.addEventListener('resize', resizeAll);
+    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+            item.classList.toggle('full');
+        });
+    });
+
+    </script>
+
+    </body>
+
+</html>

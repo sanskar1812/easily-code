@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java Program to implement Linear Extrapolation || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java Program to implement Linear Extrapolation</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+In this tutorial, we will discuss the logic behind computing the linear extrapolation in Java. Also, we will implement a Java problem that will compute the extrapolation result based on the formula.
+  Let’s see an example and understand the problem:
+</h5>
+<h3>What is Linear Extrapolation?</h3>
+<hr>
+<h5>
+  Extrapolation can be described as the mechanism in maths where the expected value is estimated more than the desire range of values. Linear extrapolation is also used to estimate the result of some readings below or above than the given range. In extrapolation, the results are predicted by analyzing the input values and its corresponding relationship. The strategy of linear interpolation is to use a straight line to connect the given data points. Linear interpolation is moreover not accurate for non-linear data. If the points in the data set change by a wide amount, linear interpolation may not give a good estimation.
+
+<b>  Extrapolation Formula:</b>
+
+  y(x) = y(x) + ((x-x1)/(x2-x1)) * (y2-y1)</h5>
+<hr class="new-line">
+
+<h3>
+Following is the java code Linear Extrapolation:
+</h3>
+<textarea rows="20" cols="120" readonly>
+  public class extrapolation
+  {
+      static double extra_polate(double[][] d, double x)
+      {
+        double y = d[0][1] + (x - d[0][0]) / (d[1][0] - d[0][0]) *  (d[1][1] - d[0][1]);
+
+    return y;
+      }
+
+
+  public static void main (String[] args)
+  {
+      double[][] d = {{ 1.2, 2.7 },{ 1.4, 3.1 }};
+      double x = 2.7;
+      System.out.println("Value of y at x = 2.7 : " + extra_polate(d, x));
+  }
+  }
+</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="1" cols="50" readonly>
+Value of y at x = 2.7 : 5.700000000000001
+</textarea>
+
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java Program To Check A Number is Palindrome or Not || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java Program To Check A Number is Palindrome or Not</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h3>Palindrome Number</h3>
+<hr>
+<h5>
+  Take a number and reverse it. If the number remains same after reversing then the number is called a palindrome number. But if the number comes different from the original number after reversing then the number is not a palindrome number.
+  Example: 1221 it’s a palindrome number
+</h5>
+<h3>
+Algorithm for checking a number is palindrome or not
+</h3>
+<hr>
+<h5>
+<ul>
+ <li>Step 1: Take a number as input from the user.</li>
+
+<li>Step 2: Put the number in another variable temporarily.</li>
+
+<li>Step 3: Reverse the number using while loop. ( number%10—- get the remainder. Initialize check variable with zero, then in each iteration of while loop just assign check=check*10+remainder and assign n=n/10. by using n=n/10 we can finally reach at that point when n will be zero, at that moment while loop will be closed. Then we can compare the value of the original number with check variable. Check is the value of the reversed number)</li>
+
+<li>Step 4: If both numbers are equal then it’s a palindrome number otherwise it’s not a palindrome number.</li>
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.Scanner;
+  public class Palindrome {
+
+     public static void main(String []args) {
+      Scanner input=new Scanner(System.in);
+       System.out.println("Enter a Number:");
+      int n=input.nextInt();
+      int rev=n;
+      int original=n;
+      int remainder;
+      int check=0;
+      while(n>0)
+      {
+          remainder=n%10;
+          check=(check*10)+remainder;
+          n=n/10;
+      }
+      if(rev==check){
+          System.out.println(original+" Is a palindrome number");
+      }
+      else{
+          System.out.println(original+" Is not palindrome number");
+      }
+     }
+  }</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="10" cols="50" readonly>
+  Enter a Number:
+  1225221
+  1225221 Is a palindrome number
+  BUILD SUCCESSFUL
+
+  Enter a Number:
+  154623
+  154623 Is not palindrome number
+  BUILD SUCCESSFUL
+</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

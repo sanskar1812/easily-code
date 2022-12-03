@@ -1,0 +1,123 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Conversion of binary fraction to decimal in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Conversion of binary fraction to decimal in Java</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants, In this section, we are going to learn how to convert Binary to Decimal in Java. So, we can divide this problem into two parts i.e one for calculation of integral part and other for decimal part. Firstly, we need to partition an integral and fractional part of a binary number. For that, we have simply used a String function called indexOf which will return the index of the first occurrence of the specified substring i.e. point/dot (.), and store its value in the variable called index.
+</h5>
+<h3>To calculate a decimal number of an Integral Part:</h3>
+<hr>
+<h5>
+  <ul>
+  <li>We will iterate over the String in reverse order using for loop from index-1 to the first element.</li>
+  <li>Store element at each index in a variable called number.</li>
+  <li>Multiply this number with a power of two and store its value in a variable called temp.</li>
+  <li>Update an Integral part with the summation of previously stored value and temp.</li>
+  <li>Increment count by one.</li>
+</ul>
+</h5>
+<h3>
+To calculate a decimal number of a Fractional Part:
+</h3>
+<hr>
+<h5>
+    <ul>
+      <li>First, we will iterate over the String using for loop from index+1 to the last element.</li>
+<li>Store element at each index in a variable called number.</li>
+<li>Multiply this number with a power of two and store its value in a variable called temp.</li>
+<li>Update a Fractional part with the summation of previously stored value and temp.</li>
+<   li>Decrement counter by one.</li>
+
+    </ul>
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+import java.util.Scanner;
+
+public class binaryToDecimal {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    int count=0,index=0, integralPart=0,counter=-1;
+    double fractionalPart=0;
+    Scanner scn=new Scanner(System.in);
+    System.out.println("Enter a binary number");
+    String s=scn.next();  //1001.1101001
+    index=s.indexOf(".");
+    for(int i=index-1;i>=0;i--) {
+      int number=s.charAt(i)-'0';
+      double temp=number*Math.pow(2,count);
+      integralPart+=temp;
+      count++;
+    }
+
+    for(int i=index+1;i<s.length();i++) {
+      int number=s.charAt(i)-'0';
+      double temp=number*Math.pow(2, counter);
+      fractionalPart+=temp;
+      counter--;
+    }
+    fractionalPart+=integralPart;
+    System.out.print("The Output is: ");
+    System.out.print(fractionalPart);
+  }
+
+}</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="5" cols="50" readonly>
+Enter a binary number
+1001.1101001
+The Output is: 9.8203125</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java Program to print a given matrix in spiral form || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java Program to print a given matrix in spiral form</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants, In this tutorial, we will look at how to print a given matrix in spiral form using Java program, a matrix of size m * n is taken (m is the number of rows and n is the number of columns).
+</h5>
+<h3>Print the given matrix in spiral form in Java</h3>
+<hr>
+<h5>
+  Let’s look at the following example:
+
+  Matrix M =
+<br>
+  1 → 2 →  &nbsp;3<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             ↓
+  <br>4 → 5  &nbsp; &nbsp;  6<br>
+  ↑ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           ↓<br>
+  7 ← 8 ←  9
+</h5>
+<h3>
+Spiral Order of this matrix M is 1 2 3 6 9 8 7 4 5 that is shown using arrows.
+</h3>
+<hr>
+<h5>
+    In the above matrix number of rows are 3 so m=3, similarly n=3 as the number of columns is 3. So, The total number of elements that have to be printed would be equal to m*n. We maintain four variable as first_row, last_row, first_column and last_column, in each iteration we move from first_column to last_column(left to right) in first_row then first_row+1 to last_row(top to bottom) in last_column then last_col-1 to first_col (right to left) in last_row and finally last_row-1 to first_row+1 (bottom to top) in first_column. After each iteration, we update first_row and first_column by incrementing 1 and last_row and last_column by decrementing 1.
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+import java.io.*;
+public class spiral
+{
+  public static void main(String[] args)
+  {
+    int [][]a = {{1,2,3},{4,5,6},{7,8,9}};
+    //  1 2 3
+    //  4 5 6
+    //  7 8 9
+    int m = 3;  // number of rows
+    int n = 3;  // number of columns
+    int first_row=0;
+    int last_row=m-1;
+    int first_column=0;
+    int last_column=n-1;
+    for(int i=0;i<m;i++)
+    {
+      for(int j=0;j<n;j++)
+      {
+        System.out.print(a[i][j]+"\t");
+      }
+      System.out.println();
+    }
+
+    System.out.println("The Output of the given matrix in spiral order: ");
+    int count=0;
+
+    while((first_row<=last_row) && (first_column<=last_column))
+    {
+      for(int i=first_column;i<=last_column;i++)
+      {
+        if(count<m*n)
+        {
+          count++;
+          System.out.print(a[first_row][i]+" ");
+
+        }
+      }
+      for(int i=first_row+1;i<=last_row;i++)
+      {
+        if(count<m*n)
+        {
+          count++;
+
+          System.out.print(a[i][last_column]+" ");
+
+        }
+      }
+      for(int i=last_column-1;i>=first_column;i--)
+      {
+        if(count<m*n)
+        {
+          count++;
+
+          System.out.print(a[last_row][i]+" ");
+
+        }
+      }
+      for(int i=last_row-1;i>first_row;i--)
+      {
+        if(count<m*n)
+        {
+          count++;
+
+          System.out.print(a[i][first_column]+" ");
+
+        }
+      }
+      first_row++;
+      first_column++;
+      last_row--;
+      last_column--;
+    }
+
+  }
+}
+</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="5" cols="50" readonly>
+  1 2 3
+  4 5 6
+  7 8 9
+  The output of the given matrix in spiral order:
+  1 2 3 6 9 8 7 4 5</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

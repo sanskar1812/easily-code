@@ -1,0 +1,184 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Bit Stuffing in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Bit Stuffing in Java</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants, I hope you are doing well.
+  In this tutorial, we will learn the concept of bit stuffing in Java.
+  So, Data frames can contain an arbitrary number of bits which allows the character codes with an arbitrary number of bits at each character, Where each special frame begins and ends with a special bit pattern, let’s say [01111110](a flag byte).
+   We know that when we are sending data in the payloads so at the beginning and the end we are having a flag byte which is [01111110].
+  Whenever the sender’s Data link layer encounters five consecutive 1’s in the data, it automatically stuffs a 0 bit into the outgoing bitstream which is called payloads.
+  If 6 1’s come then at the receiving end it might get misinterpreted that it is an end flag,
+   So after the occurrence of each consecutive 5 1’s one zero will be stuffed & that’s why it is called Bit stuffing.
+</h5>
+<h3>Concept of bit stuffing in Java with code</h3>
+<hr>
+<h5>
+When the receiver collapses with five consecutive incoming 1 bits, followed by a 0 bit, it automatically destuffs the 0 bit. Just as the concept of byte stuffing is completely transparent to the network layer, so is the bit stuffing.
+</h5>
+<h3>
+Java Code for the above explanation
+</h3>
+<hr>
+<h5>
+    <ul>
+      <li>Input d1 for the incoming destuffed string.</li>
+      <li>Take a loop from 0 to d1.length(), if the characters don’t match with 0’s and 1’s break the loop and come out of the program.</li>
+      <li>If the bit containing 1 (counter incrementing with 1 ) has not reached the 2nd if statement(counter=0)
+, and the counter becomes exactly 5 stuff a [1] bit at the end of the current statement.</li>
+      <li>Repeat the earlier point till the length of d1.</li>
+      <li>Print the statements in the format.
+      FLAG | STUFFED BIT | FLAG
+    </li>
+    <li>Flag–>01111110.</li>
+    <li>Destuff the entire string by reversing the earlier statements.Print the destuffed bit.</li>
+    </ul>
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+  public class bit_stuffing
+        {
+        public static void main(String[] args)
+          {
+                Scanner sc=new Scanner(System.in);
+                System.out.print("Enter the message:-");
+                String d1 = sc.nextLine();
+                String remaining = new String();
+                String output=new String();
+                int counter = 0;
+                for(int i=0;i<d1.length();i++)
+                  {
+
+                     if (d1.charAt(i)!='1' && d1.charAt(i)!='0')
+                          {
+                              System.out.println("Enter valid Binary values");
+                              return;
+                          }
+                     if(d1.charAt(i) == '1')
+                          {
+                              counter++;
+                              remaining = remaining + d1.charAt(i);
+                          }
+                     else
+                          {
+                              remaining = remaining + d1.charAt(i);
+                              counter = 0;
+                          }
+                     if(counter == 5)
+                          {
+                              remaining = remaining + '0';
+                              counter = 0;
+                          }
+                  }
+              System.out.println("Flag--> 01111110");
+              String new1="|01111110 | "+remaining+" | 01111110|";
+              System.out.println("Stuffed data at intermediate site is:");
+              for(int k=0;k<=(28+d1.length());k++)
+              {
+                System.out.print("-");
+              }
+              System.out.println();
+              System.out.println(" "+new1);
+              for(int k=0;k<=(28+d1.length());k++)
+              {
+                System.out.print("-");
+              }
+              System.out.println();
+              counter=0;
+              for(int i=0;i<remaining.length();i++)
+                  {
+
+                      if(remaining.charAt(i) == '1')
+                          {
+
+                              counter++;
+                              output = output + remaining.charAt(i);
+
+                          }
+                      else
+                          {
+                               output = output + remaining.charAt(i);
+                               counter = 0;
+                          }
+                     if(counter == 5)
+                          {
+                                if((i+2)!=remaining.length())
+                                {
+                                  output = output + remaining.charAt(i+2);
+                                }
+                                else
+                                {
+                                  output=output + '1';
+                                }
+                                i=i+2;
+                                counter = 1;
+                          }
+                 }
+               System.out.println("Destuffed BIT is: "+output);
+         }
+  }
+</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="8" cols="50" readonly>
+  Enter the message:-01111111110
+  Flag--> 01111110
+  Stuffed data at intermediate site is:
+  ----------------------------------------
+   |01111110 | 011111011110 | 01111110|
+  ----------------------------------------
+  Destuffed BIT is: 01111111110
+</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Java program to find Nth pure number || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Java program to find Nth pure number</h5><br>
+      <span class="text-muted">Written By- Arpit Singh</span><br><br>
+      <a href="https://www.linkedin.com/in/arpit-singh-9187241b1/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants,In this tutorial, we will look at what is Nth pure number then we will try to write code for Nth pure number in Java.
+</h5>
+<h3>Finding Nth pure number in Java</h3>
+<hr>
+<h5>
+  First of all, we define what is Nth pure number: So let’s learn what it is actually:
+  <ol>
+  <li>It should use the only digit 4 or 5.</li>
+<li>It must have even number of digits.</li>
+ <li>It should be a palindrome.</li>
+</ol>
+</h5>
+<h3>
+Let’s take a look at some of the examples:
+</h3>
+<hr>
+<h5>
+    <ol>
+      <li>N=1 result would be “44”.</li>
+<li>N=2 result would be “55”.</li>
+<li>N=2 result would be “4444”.</li>
+<li>N=2 result would be “4554”.</li>
+<li>N=2 result would be “5445”.</li>
+<li>N=2 result would be “5555”.</li>
+
+</ol>
+Looking at the pattern we can see New Pure number is a combination of what we get after appending “4” at the beginning
+ and the last or appending “5” at the starting and the end.
+ “4444” can be derived using “4” + “44” + “4” , “4554” is derived using “4”+”55“+”4”,
+  “5445” is derived using “5”+”44“+”5” and “5555” using “5”+”55“+”5” where bolded numbers are previous pure numbers.
+
+So, in each iteration i, we get new power(2, i) pure number using previously power(2, i-1) pure numbers by appending either “4” or “5” at both ends. We maintain a counter named as count that stops once we reach the Nth pure number.
+</h5>
+<hr class="new-line">
+<h3>
+Code
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+  import java.io.*;
+  class nthpurenumber{
+    public static void main(String[] args)
+    {
+      int n = 5;    //Nth pure number to be found
+      String[] v= new String[n+1];
+      v[0]= "44" ;
+      v[1]= "55" ;
+
+      int count = 2;
+      int val=-1;
+      int i =0;
+      while(count < n )
+      {
+        i++;
+        int x = val+1;
+        val = x + (int)Math.pow(2,i)-1;
+        for(int k=x;k<=val;k++)
+        {
+
+          v[count]=("4"+v[k]+"4");
+          count++;
+          if(count >= n)
+          {
+            break;
+          }
+        }
+        for(int k=x;k<=val;k++)
+        {
+
+          v[count]=("5"+v[k]+"5");
+          count++;
+          if(count >= n)
+          {
+            break;
+          }
+        }
+      }
+      System.out.println(v[n-1]); // prints Nth pure number
+    }
+  }</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="5" cols="50" readonly>
+//When compiling the code using: javac nthpurenumber.java and then executing using java nthpurenumber we get the output:
+
+5445</textarea>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

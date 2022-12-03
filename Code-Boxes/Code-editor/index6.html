@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+    hr.new-line{
+      border: 10px solid grey;
+    border-radius: 5px;
+    }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Stable Sorting in Java || Easlily Code with me</title>
+  </head>
+  <body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Stable Sorting in Java</h5><br>
+      <span class="text-muted">Written By- Sanskar Dwivedi</span><br><br>
+      <a href="https://www.linkedin.com/in/sanskar-dwivedi-120188186"><i class="fa fa-linkedin" aria-hidden="true" ></i></a>
+      &ensp;      <a href="https://www.youtube.com/channel/UCwYPRB_KJzyVehFkvKXrkmA "><i class="fa fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
+<div class="container">
+<br>
+<h5>
+  Hello Tech Aspirants
+  In this tutorial, we will learn some basic concepts of stable sorting in Java with an example program.
+  For understanding this we will take the example of insertion sort, which is one of the types of stable sorting algorithms.
+  In this tutorial, we will look at its working, examples, along with proper understandable code.
+</h5>
+<h3>The logic of Stable sorting</h3>
+<hr>
+<h5>
+  Let’s suppose we have some data and we want to arrange in ascending or descending order. There are many sorting algorithms through which we can easily sort our array.
+But sorting through something called stable sorting is pretty much easier.
+Let’s suppose we have some cards and we want to arrange in increasing order of ranks
+, We will consider that our left hand is unsorted and our right hand is sorted.
+Sorting could be easily done in 2 ways.
+In our first way, we draw a card one by one from the unsorted subset and try to check its correct place to be filled in our next hand.
+At the end of the process, we will get a sorted set of cards.
+
+In our second way, we will divide our cards into 2 subsets and imagine a line just next to our first card.
+after doing this we will compare ranks of all the cards which are placed right to it.
+If the card has a less degree then we will swap with the boundary value in the left after comparing.
+The same process is done in Insertion sort.
+
+Let’s suppose we want to sort a given list of numbers having values[10, 9 , 5, -2, 8, 6].
+Firstly we will divide our array into 2 iterations.
+array with [0] index or 10 is in the sorted part because a single element is always sorted
+</h5>
+<h3>The drawback of Insertion Sort</h3>
+<hr>
+<h5>
+  It is not the best in terms of performance, but it is efficient than the Selection sort and Bubble sort.
+  If we compare these in practical scenarios.
+  The time complexity of its worst case is exactly the same as its average case.</h5>
+  <h3>Time Complexity</h3>
+  <hr>
+  <h5>
+    <ol>
+      <li>Worst Case Complexity [Big-O]:-O(n square)</li>
+<li>Best Case Complexity Big-Omega]:- O(n)</li>
+<li>Average Case Complexity [Big-theta]:- O(n square)</li>
+      </li>
+    </ol>
+</h5>
+<hr class="new-line">
+<h3>
+Stable sort program in Java
+</h3>
+<textarea rows="30" cols="120" readonly>
+  import java.util.*;
+  class insertion
+  {
+  public static void main(String args[])
+  {
+  Scanner sc=new Scanner(System.in);
+  int n,key,j;
+  System.out.println("***Enter the size of the array***");
+  n=sc.nextInt();
+  int arr[]=new int[n];
+  System.out.println("***Enter the array***");
+  for(int i=0;i<n;i++)
+  {
+  arr[i]=sc.nextInt();
+  }
+  for (int i=1;i<n;++i)
+  {
+  key=arr[i];
+  j=i-1;
+  while(j >= 0 && arr[j]>key)
+  {
+  arr[j+1]=arr[j];
+  j=j-1;
+  }
+  arr[j+1]=key;
+  }
+  System.out.println("***Printing the array***");
+  for(int i=0;i<n;i++)
+  {
+  System.out.println(arr[i]);
+  }
+  }
+  }</textarea>
+<hr>
+<h3>
+As the output result, we will get what you can see below.
+</h3>
+<hr>
+<textarea rows="10" cols="50" readonly>
+  ***Enter the size of the array***
+  6
+  ***Enter the array***
+  10
+  9
+  5
+  -2
+  8
+  6
+  ***Printing the array***
+  -2
+  5
+  6
+  8
+  9
+  10</textarea>
+
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
